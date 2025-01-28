@@ -1,0 +1,19 @@
+#Steigerwald Dataset
+
+df <- read.csv("Steigerwald_sample_points_all_data_subset_withNames.csv")
+
+#df[,3] or df$LUCAS_LC = same selection
+
+#df[,length(df)-1] --> selecting the second last column
+
+df[1:20,4]
+df[,length(df)-1]
+df[,c(3,14)]
+
+names(df)
+x <- plot(df[,27],df[,14]) #plotting NDVI against SRTM
+#NDVI<0.5 is a boolean question
+y <- plot(df[,14],df$L7.ndvi<0.5, pch=20,col="blue",xlab ="SRTM", ylab = "NDVI")
+
+##redoing it with ggplot now
+ggplot(df,aes(x=SRTM, y=L8.ndvi,color=LCname)) + geom_point() + facet_wrap(~LCname) + labs(x = "SRTM", y = "NDVI", title = "Types of landcover")
