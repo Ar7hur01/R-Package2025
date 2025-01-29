@@ -1,19 +1,3 @@
-#' Create Record
-#'
-#' @param shp_file
-#' @param raster_file
-#' @param output_folder
-#'
-#' @return The newly created record
-#' @export
-#'
-#' @examples
-#' newRecord <- create Record
-
-install.packages("roxygen2")
-library(roxygen2)
-
-
 #function 1 --> combining raster data and shp to a new shp with all attributes
 stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   library(terra)

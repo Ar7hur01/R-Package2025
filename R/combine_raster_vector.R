@@ -11,8 +11,8 @@
 
 
 combine_raster_vector <- function(raster_path, coord_label, output_path = NULL) {
-  library(terra)
-  library(sf)
+  #library(terra)
+  #library(sf)
   lines <- readLines(coord_label)
   start_line <- grep("^X\\s+Y\\s+Label", lines)
 
@@ -30,3 +30,7 @@ combine_raster_vector <- function(raster_path, coord_label, output_path = NULL) 
     vector_points <- st_transform(vector_points, crs(raster_data))
   }
 }
+
+library(usethis)
+library(devtools)
+devtools::document()
