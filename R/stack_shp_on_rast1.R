@@ -1,9 +1,4 @@
 #function 1 --> combining raster data and shp to a new shp with all attributes
-install.packages("royxgen2")
-library(roxygen2)
-
-#' @export
-#' @import terra
 
 stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   library(terra)
@@ -39,3 +34,7 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
 
     )
 }
+#working perfectly
+stack_shp_on_rast("C:/Users/AD/Desktop/R_Package/Enkelboom/Enkelboom punte.shp",
+                  "C:/Users/AD/Desktop/R_Package/08-01-25_enkelboom_stacked.tif",
+                  "C:/Users/AD/Desktop/R_Package/Output")
