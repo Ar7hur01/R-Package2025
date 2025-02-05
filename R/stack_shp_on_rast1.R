@@ -27,10 +27,11 @@ raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
   # Crop and mask to the polygon extent
   portrait_cropped <- crop(portrait_stack, extent)
   portrait_masked <- mask(portrait_cropped, extent)
+  print(portrait_masked)
 
-  writeRaster(portrait_masked, output_folder, overwrite=TRUE)
+  f <- file.path(output_folder, "stacked.tif")
+  writeRaster(portrait_masked, f, overwrite=TRUE)
 }
-
 
 #' Stack shape file on raster data and mask
 #'
