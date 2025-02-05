@@ -16,6 +16,3 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 \description{
 Stack shape file on raster data and mask
 }
-\examples{
-stack_shp_on_rast("in-situ_values.shp", "S1_scene_010125.tif", "output_folder")
-}

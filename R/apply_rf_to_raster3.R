@@ -9,7 +9,7 @@
 #' @returns
 #' @export
 #'
-#' @examples apply_rf_to_raster("rf_model.rds", "S1_scene_300125.tif", "prediction_map.tif")
+#' @examples
 
 apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # load the satellite-scene
@@ -39,5 +39,5 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   plot(predicted_raster, main = "Regression Map: Predicted Values")
 
   # Save as a TIF with decimal numbers of predictes in-situ measurements
-  writeRaster(predicted_raster, "C:/Users/AD/Desktop/R_Package/Output/prediction.tif", datatype = "FLT4S", overwrite = TRUE)
+  writeRaster(predicted_raster, output_raster_path, datatype = "FLT4S", overwrite = TRUE)
 }

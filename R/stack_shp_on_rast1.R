@@ -41,7 +41,7 @@ raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
 #' @returns
 #' @export
 #'
-#' @examples stack_shp_on_rast("in-situ_values.shp", "S1_scene_010125.tif", "output_folder")
+#' @examples
 
 stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   library(terra)

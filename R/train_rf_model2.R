@@ -11,7 +11,7 @@
 #' @returns
 #' @export
 #'
-#' @examples train_rf_model("insitu_reflectance.txt", "Label", output_folder, ntree = 500, mtry = 3)
+#' @examples
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
   # Load the dataset

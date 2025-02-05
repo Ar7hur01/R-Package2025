@@ -26,6 +26,3 @@ train_rf_model(
 \description{
 Train Random Forest Regression Model
 }
-\examples{
-train_rf_model("insitu_reflectance.txt", "Label", output_folder, ntree = 500, mtry = 3)
-}

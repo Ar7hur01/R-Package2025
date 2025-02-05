@@ -16,6 +16,3 @@ apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 \description{
 Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
 }
-\examples{
-apply_rf_to_raster("rf_model.rds", "S1_scene_300125.tif", "prediction_map.tif")
-}
