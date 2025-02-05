@@ -15,6 +15,8 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # load the satellite-scene
   satellite_raster <- rast(raster_path)  # Use 'rast' from the terra package
 
+  #Reading in the Model
+  rf_model <- readRDS(rf_model)
   # Extract pixel values (reflectance values) from the raster
   reflectance_values <- as.data.frame(satellite_raster, xy = TRUE)
 
@@ -28,16 +30,17 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   head(reflectance_values)
 
   # Apply the trained Random Forest model to the reflectance values (predict the response variable)
-  predictions <- predict(model, newdata = reflectance_values[, -c(1, 2)])  # Exclude x, y columns for prediction
+  predictions <- predict(rf_model, newdata = reflectance_values[, -c(1, 2)])  # Exclude x, y columns for prediction
   print(predictions)
 
   # Convert the predictions into a raster format
-  predicted_raster <- satellite_raster
+  predicted_raster <- satellite_raster[[1]]                                           # Unsure about that
   values(predicted_raster) <- predictions
 
   # Plot the regression map (predicted values)
-  plot(predicted_raster, main = "Regression Map: Predicted Values")
+ # plot(predicted_raster, main = "Regression Map: Predicted Values")                  #plotting didnt work
 
   # Save as a TIF with decimal numbers of predictes in-situ measurements
-  writeRaster(predicted_raster, output_raster_path, datatype = "FLT4S", overwrite = TRUE)
+  predict <- file.path(output_raster_path, "prediction.tif")
+  writeRaster(predicted_raster, predict, datatype = "FLT4S", overwrite = TRUE)
 }

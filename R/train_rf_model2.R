@@ -48,8 +48,8 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
   rmse <- sqrt(mean((actual - predictions)^2))
   cat("Root Mean Squared Error (RMSE):", rmse, "\n")
 
-  # Return the trained model
-  return(rf_model)
   file_path <- file.path(output_folder, "rf_model.rds")
   saveRDS(rf_model, file_path)
+  # Return the trained model
+  return(rf_model)
 }

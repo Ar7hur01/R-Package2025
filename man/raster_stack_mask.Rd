@@ -7,7 +7,7 @@
 raster_stack_mask(raster_scene_folder, aoi, output_folder)
 }
 \arguments{
-\item{raster_scene_folder:}{Folder containing the raster files}
+\item{raster_scene_folder:}{Folder containing the raster files with the bands that will be used for the regression model (either 10/20/60 m Resolution)}
 
 \item{aoi:}{Area of interest (AOI) as a vector file.}
 
