@@ -1,12 +1,17 @@
 ## function 2 for training the Random Forest model
-# Install necessary package if not already installed
-if (!require(randomForest)) {install.packages("randomForest")}
-if (!require(terra)) {install.packages("terra")}
-if (!require(raster)) {install.packages("raster")}
-# Load the required packages
-library(randomForest)
-library(terra)
-library(raster)
+
+#' Train Random Forest Regression Model
+#'
+#' @param regression_input_path Path to the input file containing the regression data (Output file from "stack_shp_on_rast")
+#' @param response_var Name of the in-situ data column (response-variable) in the regression data
+#' @param output_folder Folder to save the trained model
+#' @param ntree Number of trees in the Random Forest model
+#' @param mtry Number of variables randomly sampled as candidates at each split
+#'
+#' @returns
+#' @export
+#'
+#' @examples train_rf_model("insitu_reflectance.txt", "Label", output_folder, ntree = 500, mtry = 3)
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
   # Load the dataset
