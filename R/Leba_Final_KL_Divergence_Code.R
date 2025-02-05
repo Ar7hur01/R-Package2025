@@ -39,7 +39,7 @@ cov.mat<- matrix(1, nrow=nb, ncol=n_c) ### CHANGED NCOL
 for (i in 1:nrow(df)){ # the number of pixels
   cntj<- 1
   for (j in 3:ncol(df)){ #for each column
-    dd<- df[i,j]  
+    dd<- df[i,j]
     for (k in 1:nb){  #for each quantile
       kl<- q.mat[k, cntj]
       ku<- q.mat[k+1, cntj]
@@ -72,7 +72,7 @@ for (w in 1:length(cseq)){ # for every sample number configuration....
   print(w) ### ADDED TO SHOW PROGRESS
   s.size=cseq[w]  # sample size
   mat.f<- matrix(NA,ncol=10,nrow=its ) # placement for iteration outputs
-  
+
   #internal loop
   for (j in 1:its){ #Note that this takes quite a while to run to completion
     repeat{
@@ -80,34 +80,34 @@ for (w in 1:length(cseq)){ # for every sample number configuration....
       s.df<- df[ss,]
       if (sum(duplicated(s.df) | duplicated(s.df[nrow(s.df):1, ])[nrow(s.df):1]) < 2)
       {break}}
-    
+
     # Save the sample in the list
     if (is.null(samples_list[[w]])) {
       samples_list[[w]] <- list()
     }
     samples_list[[w]][[j]] <- s.df
-    
+
     #print((samples_list[[17]][[1]]))
-#write.csv(samples_list[[187]][[1]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(1).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[2]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(2).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[3]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(3).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[4]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(4).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[5]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(5).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[6]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(6).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[7]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(7).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[8]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(8).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[9]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(9).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-#write.csv(samples_list[[187]][[10]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(10).csv', col.names = TRUE, row.names = FALSE, sep = ",")
-    
+    #write.csv(samples_list[[187]][[1]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(1).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[2]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(2).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[3]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(3).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[4]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(4).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[5]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(5).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[6]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(6).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[7]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(7).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[8]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(8).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[9]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(9).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+    #write.csv(samples_list[[187]][[10]], file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/Sample List2/sampled_points(10).csv', col.names = TRUE, row.names = FALSE, sep = ",")
+
     ## Fourth test: Kullback-Leibler (KL) divergence
     ####Compare whole study area covariate space with the slected sample
     #sample data hypercube (essentially the same script as for the grid data but just doing it on the sample data)
     h.mat<- matrix(1, nrow=nb, ncol=n_c) ### CHANGED NCOL FROM 4 TO N_C
-    
+
     for (ii in 1:nrow(s.df)){ # the number of observations
       cntj<- 1
       for (jj in 3:ncol(s.df)){ #for each column
-        dd<- s.df[ii,jj]  
+        dd<- s.df[ii,jj]
         for (kk in 1:nb){  #for each quantile
           kl<- q.mat[kk, cntj]
           ku<- q.mat[kk+1, cntj]
@@ -115,7 +115,7 @@ for (w in 1:length(cseq)){ # for every sample number configuration....
         }
         cntj<- cntj+1}
     }
-    
+
     #h.mat
     #Kullback-Leibler (KL) divergence
     klo.1<- KL.empirical(c(cov.mat[,1]), c(h.mat[,1])) #1
@@ -152,11 +152,11 @@ for (w in 1:length(cseq)){ # for every sample number configuration....
     klo.32<- KL.empirical(c(cov.mat[,32]), c(h.mat[,32])) #32
     klo.33<- KL.empirical(c(cov.mat[,33]), c(h.mat[,33])) #33
     klo.34<- KL.empirical(c(cov.mat[,34]), c(h.mat[,34])) #34
-    klo<- mean(c(klo.1,klo.2,klo.3,klo.4,klo.5,klo.6,klo.7,klo.8,klo.9,klo.10,klo.11,klo.12,klo.13,klo.14,klo.15,klo.16,klo.17,klo.18,klo.19,klo.20,klo.21,klo.22,klo.23,klo.24,klo.25,klo.26,klo.27,klo.28,klo.29,klo.30,klo.31,klo.32,klo.33,klo.34))    
+    klo<- mean(c(klo.1,klo.2,klo.3,klo.4,klo.5,klo.6,klo.7,klo.8,klo.9,klo.10,klo.11,klo.12,klo.13,klo.14,klo.15,klo.16,klo.17,klo.18,klo.19,klo.20,klo.21,klo.22,klo.23,klo.24,klo.25,klo.26,klo.27,klo.28,klo.29,klo.30,klo.31,klo.32,klo.33,klo.34))
     mat.f[j,10]<- klo  # value of 0 means no divergence
   }
-  
-  
+
+
   #arrange outputs
   mat.seq[w,1]<-mean(mat.f[,10])
   mat.seq[w,2]<-sd(mat.f[,10])} ## END of LOOP
@@ -173,7 +173,7 @@ dat.seq$normalized_KL <- 1 - (dat.seq$mean_KL - min_KL) / (max_KL - min_KL)
 print(dat.seq)
 write.csv(dat.seq, file = 'C:/Users/moleb/Desktop/PhD/Objective_2/Cosmos Data/meanKL&NormalizedKL500.csv', col.names = TRUE, row.names = FALSE, sep = ",")
 
-#######################################################  
+#######################################################
 #plot some outputs
 #plot(cseq,mat.seq[,1], xlab="number of samples", ylab= "similarity between covariates (entire field) with covariates (sample)",main="Population and sample similarity")
 #plot(cseq,mat.seq[,2],xlab="number of samples", ylab= "standard deviation similarity between covariates (entire field) with covariates (sample)",main="Population and sample similarity (sd)")

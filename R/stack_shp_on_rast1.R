@@ -35,6 +35,6 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
     )
 }
 #working perfectly
-stack_shp_on_rast("C:/Users/AD/Desktop/R_Package/Enkelboom/Enkelboom punte.shp",
-                  "C:/Users/AD/Desktop/R_Package/08-01-25_enkelboom_stacked.tif",
-                  "C:/Users/AD/Desktop/R_Package/Output")
+#stack_shp_on_rast("C:/Users/AD/Desktop/R_Package/Enkelboom/Enkelboom punte.shp",
+                  #"C:/Users/AD/Desktop/R_Package/08-01-25_enkelboom_stacked.tif",
+                  #"C:/Users/AD/Desktop/R_Package/Output")

@@ -48,5 +48,3 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
   file_path <- file.path(output_folder, "rf_model.rds")
   saveRDS(rf_model, file_path)
 }
-
-
