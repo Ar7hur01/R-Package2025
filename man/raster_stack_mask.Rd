@@ -9,7 +9,7 @@ raster_stack_mask(raster_scene_folder, aoi, output_folder)
 \arguments{
 \item{raster_scene_folder:}{Folder containing the raster files}
 
-\item{aoi:}{Area of interest (AOI) as a vector file}
+\item{aoi:}{Area of interest (AOI) as a vector file.}
 
 \item{output_folder:}{Folder to save the output file (output directory)}
 }

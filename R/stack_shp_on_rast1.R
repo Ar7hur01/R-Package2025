@@ -4,7 +4,7 @@
 #' Stack and mask of individual raster bands (from Sentinel 2)
 #'
 #' @param raster_scene_folder: Folder containing the raster files
-#' @param aoi: Area of interest (AOI) as a vector file
+#' @param aoi: Area of interest (AOI) as a vector file.
 #' @param output_folder: Folder to save the output file (output directory)
 #'
 #' @returns
