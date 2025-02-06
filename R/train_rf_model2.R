@@ -1,36 +1,19 @@
-## function 3
+## function 2 for training the Random Forest model
 
-# Install necessary package if not already installed
-if (!require(randomForest)) {
-  install.packages("randomForest")
-}
-if (!require(terra)) {
-  install.packages("terra")
-}
-if (!require(raster)) {
-  install.packages("raster")
-}
-
-
-# Load the required packages
-library(randomForest)
-library(terra)
-library(raster)
-
-# Function for training the Random Forest model
-#' Title
+#' Train Random Forest Regression Model
 #'
-#' @param regression_input_path
-#' @param response_var
-#' @param predictors_start_column
-#' @param ntree
-#' @param mtry
+#' @param regression_input_path Path to the input file containing the regression data (Output file from "stack_shp_on_rast")
+#' @param response_var Name of the in-situ data column (response-variable) in the regression data
+#' @param output_folder Folder to save the trained model
+#' @param ntree Number of trees in the Random Forest model
+#' @param mtry Number of variables randomly sampled as candidates at each split
 #'
-#' @returns this wil be the output of the function
+#' @returns
 #' @export
 #'
 #' @examples
-train_rf_model <- function(regression_input_path, response_var, ntree = 500, mtry = 3) {
+
+train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
   # Load the dataset
   regression_input <- read.table(regression_input_path, header = TRUE, sep = "\t")
 
@@ -39,6 +22,8 @@ train_rf_model <- function(regression_input_path, response_var, ntree = 500, mtr
 
   # Define the predictors and the response variable
   predictors <- grep("^Band", colnames(regression_input), value = TRUE)
+  head(predictors)
+  print(predictors)
 
   # Create a formula for the model
   formula <- as.formula(paste(response_var, "~", paste(predictors, collapse = " + ")))
@@ -50,7 +35,7 @@ train_rf_model <- function(regression_input_path, response_var, ntree = 500, mtr
   test_data <- regression_input[-train_indices, ]
 
   # Train the Random Forest Regression model
-  rf_model <- randomForest(formula, data = train_data, ntree = ntree, mtry = mtry, importance = TRUE)
+  rf_model <- randomForest(formula, data = train_data, ntree = 500, mtry = 3, importance = TRUE)
 
   # Print model summary
   print(rf_model)
@@ -63,6 +48,8 @@ train_rf_model <- function(regression_input_path, response_var, ntree = 500, mtr
   rmse <- sqrt(mean((actual - predictions)^2))
   cat("Root Mean Squared Error (RMSE):", rmse, "\n")
 
+  file_path <- file.path(output_folder, "rf_model.rds")
+  saveRDS(rf_model, file_path)
   # Return the trained model
   return(rf_model)
 }
