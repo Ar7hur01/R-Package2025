@@ -10,3 +10,5 @@ library(testthat)
 library(InFieldR)
 
 test_check("InFieldR")
+testthat::test_file("Z:/Windows_eagle_local/Geoanalysis/Rpackagetask/clone/R-Package2025/R/stack_shp_on_rast1.R")
+Devtools::check("")
