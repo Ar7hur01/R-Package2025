@@ -5,8 +5,6 @@
 #' @param cseq sequence of sampled points by cLHS
 #' @param its iterations of sampled data
 #' @param output_file file directory
-#' @import clhs
-#' @import entropy
 #'
 #' @return csv file with optimal sample size with XYZ parameters
 #' @export

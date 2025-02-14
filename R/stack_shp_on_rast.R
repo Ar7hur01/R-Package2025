@@ -1,6 +1,5 @@
 #function 1 --> combining raster data and shp to a new shp with all attributes
 
-
 #' Stack and mask of individual raster bands (from Sentinel 2)
 #'
 #' @param raster_scene_folder: Folder containing the raster files with the bands that will be used for the regression model (either 10/20/60 m Resolution)
@@ -37,7 +36,7 @@ raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
 #'
 #' @param shp_file SHP file with in situ-measurments
 #' @param raster_file Raster file with satellite scene from the closest date of the in-situ data acquisition
-#' @param output_folder Folder to save the output file (output directory)
+#' @param output_folder Folder to save the output file (output directory [a change here])
 #'
 #' @returns
 #' @export
@@ -81,4 +80,3 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
 #stack_shp_on_rast("C:/Users/AD/Desktop/R_Package/Enkelboom/Enkelboom punte.shp",
                   #"C:/Users/AD/Desktop/R_Package/08-01-25_enkelboom_stacked.tif",
                   #"C:/Users/AD/Desktop/R_Package/Output")
-

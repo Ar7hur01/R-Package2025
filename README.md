@@ -1,4 +1,5 @@
-﻿# R-Package2025
+# R-Package2025
+
 # InFieldR
 
 ## Overview
@@ -8,18 +9,22 @@
 ## Functionality
 
 ### 1. Sampling Location Selection
-- The package utilizes covariate data (e.g., NDVI, soil properties, topography) to determine optimal in-field sampling locations and the number of samples required.
+
+-   The package utilizes covariate data (e.g., NDVI, soil properties, topography) to determine optimal in-field sampling locations and the number of samples required.
 
 ### 2. Field Data Collection
-- Users collect measurements at the suggested locations in the field (e.g., chlorophyll content, biomass, soil properties).
+
+-   Users collect measurements at the suggested locations in the field (e.g., chlorophyll content, biomass, soil properties).
 
 ### 3. Random Forest Regression Modeling
-- A Random Forest regression model is built using the collected in-field measurements and corresponding satellite imagery.
-- This model establishes the relationship between ground measurements and satellite-derived covariates.
+
+-   A Random Forest regression model is built using the collected in-field measurements and corresponding satellite imagery.
+-   This model establishes the relationship between ground measurements and satellite-derived covariates.
 
 ### 4. Prediction & Mapping
-- Once trained, the model is applied to new satellite imagery to generate a predicted map of the entire AOI.
-- The resulting map provides spatial insights into the measured variable across the field.
+
+-   Once trained, the model is applied to new satellite imagery to generate a predicted map of the entire AOI.
+-   The resulting map provides spatial insights into the measured variable across the field.
 
 ## Use Case
 
@@ -29,6 +34,4 @@ This package is particularly useful for precision agriculture, environmental mon
 
 You can install the package using:
 
-```r
-# Install from GitHub 
-devtools::install_github("")
+\`\`\`r \# Install from GitHub devtools::install_github("")

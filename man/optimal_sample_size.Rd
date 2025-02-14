@@ -2,7 +2,7 @@
 % Please edit documentation in R/Optimal_Sample_Size.R
 \name{optimal_sample_size}
 \alias{optimal_sample_size}
-\title{Function 0 --> Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis}
+\title{Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis}
 \usage{
 optimal_sample_size(
   df = Bands,
@@ -27,5 +27,5 @@ optimal_sample_size(
 csv file with optimal sample size with XYZ parameters
 }
 \description{
-Function 0 --> Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
+Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
 }
