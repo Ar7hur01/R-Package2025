@@ -1,4 +1,4 @@
-#' Function 0 --> Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
+#' Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
 #'
 #' @param df Bands (Covariate dataframe:used by cLHS or sampling; used by KL divergence to calculate distribution)
 #' @param nb number of bins for created quantiles
