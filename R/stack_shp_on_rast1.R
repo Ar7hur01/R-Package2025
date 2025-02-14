@@ -75,7 +75,6 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
     sep = "\t",                 # Use tab-delimited format
     quote = FALSE,
 
-
     )
 }
 #working perfectly

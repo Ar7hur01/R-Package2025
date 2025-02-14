@@ -9,7 +9,7 @@ optimal_sample_size(
   nb = 10,
   cseq = seq(10, 500, 10),
   its = 10,
-  output_file = "C:/Users/moleb/Desktop/Enkelboom_Data/Optimal_Samples.csv"
+  output_folder
 )
 }
 \arguments{

@@ -1,0 +1,19 @@
+---
+title: "Introduction to the functions of the R package 'inFieldR'"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the functions of the R package 'inFieldR'}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Our package 'InFieldR' is designed to streamline in-field sampling and satellite-based prediction for agricultural and environmental studies. The package provides a structured workflow for selecting sampling locations, collecting field measurements, and building predictive models to map spatial variability across a given area of interest (AOI).
+
+```{r, include = FALSE}
+library(InFieldR)
+?inFieldR
+```
+
+```{r setup}
+library(InFieldR)
+```
