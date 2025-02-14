@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Charl & Arthur
 Maintainer: The package maintainer <arthur.dreher@stud-mail.uni-wuerzburg.de>
 Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+    Our packages helps to first suggest with a regression model how many in-situ values should be taken to receive a sufficient output and afterwards it uses those collected values to predict values for a whole map (depended on the input-scene.
 License: 4.1
 Encoding: UTF-8
 LazyData: true
