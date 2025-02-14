@@ -1,9 +1,9 @@
 ﻿# R-Package2025
-# FieldmapR
+# InFieldR
 
 ## Overview
 
-**FieldmapR** is an R package designed to streamline in-field sampling and satellite-based prediction for agricultural and environmental studies. The package provides a structured workflow for selecting optimal sampling number and locations, collecting field measurements, and building predictive models to map spatial variability across a given area of interest (AOI).
+**InFieldR** is an R package designed to streamline in-field sampling and satellite-based prediction for agricultural and environmental studies. The package provides a structured workflow for selecting optimal sampling number and locations, collecting field measurements, and building predictive models to map spatial variability across a given area of interest (AOI).
 
 ## Functionality
 
