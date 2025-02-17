@@ -11,7 +11,7 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 
 \item{raster_file}{Raster file with satellite scene from the closest date of the in-situ data acquisition}
 
-\item{output_folder}{Folder to save the output file (output directory)}
+\item{output_folder}{Folder to save the output file (output directory [a change here])}
 }
 \description{
 Stack shape file on raster data and mask
