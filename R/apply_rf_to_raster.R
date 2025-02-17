@@ -1,4 +1,4 @@
-## function 3 Prediction map function
+## function 4 Prediction map function
 # Function to apply the trained Random Forest model on new raster data
 #' Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
 #'

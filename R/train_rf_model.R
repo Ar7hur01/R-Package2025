@@ -1,4 +1,4 @@
-## function 2 for training the Random Forest model
+## function 3 for training the Random Forest model
 
 #' Train Random Forest Regression Model
 #'

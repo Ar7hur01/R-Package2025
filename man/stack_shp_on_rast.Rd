@@ -2,7 +2,7 @@
 % Please edit documentation in R/stack_shp_on_rast.R
 \name{stack_shp_on_rast}
 \alias{stack_shp_on_rast}
-\title{Stack shape file on raster data and mask}
+\title{function 2: Stack shape file on raster data and mask}
 \usage{
 stack_shp_on_rast(shp_file, raster_file, output_folder)
 }
@@ -14,5 +14,5 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 \item{output_folder}{Folder to save the output file (output directory [a change here])}
 }
 \description{
-Stack shape file on raster data and mask
+function 2: Stack shape file on raster data and mask
 }

@@ -2,7 +2,7 @@
 title: "Introduction to the functions of the R package 'inFieldR'"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to the functions of the R package 'inFieldR'}
+  %\VignetteIndexEntry{Detailed desrciption of all functions of this R package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
