@@ -2,7 +2,7 @@
 # Function to apply the trained Random Forest model on new raster data
 #' Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
 #'
-#' @param rf_model Trained Random Forest model
+#' @param rf_model Trained Random Forest model (from "train_rf_model"-function)
 #' @param raster_path Path to the raster file with reflectance values (.tif)
 #' @param output_raster_path Path to save the output raster file with predicted values
 #'
@@ -27,7 +27,6 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   for (i in 3:ncol(reflectance_values)) {
     colnames(reflectance_values)[i] <- paste0("Band_", i-2)  # Subtract 2 to start numbering from 1
   }
-  head(reflectance_values)
 
   # Apply the trained Random Forest model to the reflectance values (predict the response variable)
   predictions <- predict(rf_model, newdata = reflectance_values[, -c(1, 2)])  # Exclude x, y columns for prediction
@@ -38,7 +37,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   values(predicted_raster) <- predictions
 
   # Plot the regression map (predicted values)
- # plot(predicted_raster, main = "Regression Map: Predicted Values")                  #plotting didnt work
+  plot(predicted_raster, main = "Regression Map: Predicted Values")                  #plotting didnt work
 
   # Save as a TIF with decimal numbers of predictes in-situ measurements
   predict <- file.path(output_raster_path, "prediction.tif")

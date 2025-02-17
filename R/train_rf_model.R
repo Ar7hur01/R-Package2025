@@ -23,7 +23,6 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
   # Define the predictors and the response variable
   predictors <- grep("^Band", colnames(regression_input), value = TRUE)
   head(predictors)
-  print(predictors)
 
   # Create a formula for the model
   formula <- as.formula(paste(response_var, "~", paste(predictors, collapse = " + ")))
