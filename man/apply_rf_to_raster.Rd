@@ -7,7 +7,7 @@
 apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 }
 \arguments{
-\item{rf_model}{Trained Random Forest model}
+\item{rf_model}{Trained Random Forest model (from "train_rf_model"-function)}
 
 \item{raster_path}{Path to the raster file with reflectance values (.tif)}
 

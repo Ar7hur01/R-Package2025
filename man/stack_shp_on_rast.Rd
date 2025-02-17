@@ -7,7 +7,7 @@
 stack_shp_on_rast(shp_file, raster_file, output_folder)
 }
 \arguments{
-\item{shp_file}{SHP file with in situ-measurments}
+\item{shp_file}{stacked SHP file (from function "raster_stack_mask") with in situ-measurments}
 
 \item{raster_file}{Raster file with satellite scene from the closest date of the in-situ data acquisition}
 

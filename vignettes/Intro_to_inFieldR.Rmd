@@ -19,7 +19,7 @@ library(InFieldR)
 ```
 
 ```{r}
-masked_and_stacked_raster <- raster_stack_mask(raster_scene_folder, aoi, output_folder)
-print(masked_and_stacked_raster)
+#masked_and_stacked_raster <- raster_stack_mask(raster_scene_folder, aoi, output_folder)
+#print(masked_and_stacked_raster)
 ```
 
