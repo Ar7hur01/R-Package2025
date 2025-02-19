@@ -1,8 +1,8 @@
 #' function 2: Stack shape file on raster data and mask
 #'
-#' @param shp_file stacked SHP file (from function "raster_stack_mask") with in situ-measurments
-#' @param raster_file Raster file with satellite scene from the closest date of the in-situ data acquisition
-#' @param output_folder Folder to save the output file (output directory [a change here])
+#' @param shp_file stacked SHP file (your own or the output from function "raster_stack_mask") with in-situ measurements
+#' @param raster_file Raster file with satellite scene from the closest date of the in-situ data acquisition (Sentinel-scene from e.g. copernicus-hub)
+#' @param output_folder Folder to save the output file (output directory)
 #'
 #' @returns
 #' @export
@@ -20,9 +20,11 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   for (i in seq_along(colnames(extracted_values))) {
     colnames(extracted_values)[i] <- paste0("Band_", i-1)
   }
+
   # Print renamed dataframe for reference
   print(colnames(extracted_values))
 
+  # Combine the extracted values with the shapefile data
   shapefile_data <- cbind(shapefile_data, extracted_values[,-1]) # Remove the ID column to avoid duplication
   #Check-up
   head(shapefile_data)
@@ -33,10 +35,10 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   write.table(
     shapefile_data,
     file = file_path,
-    append = FALSE,             # Append to the file after projection
-    row.names = FALSE,          # Do not write row numbers
-    col.names = TRUE,           # Include column headers
-    sep = "\t",                 # Use tab-delimited format
+    append = FALSE,
+    row.names = FALSE,
+    col.names = TRUE,
+    sep = "\t",
     quote = FALSE,
     )
 }

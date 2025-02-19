@@ -1,6 +1,8 @@
 ## function 3 for training the Random Forest model
 
 #' Train Random Forest Regression Model
+#' This function trains a Random Forest regression model using the input data and saves the trained model to a file.
+#' It will show you the RMSE as output to evaluate the accuracy of your model.
 #'
 #' @param regression_input_path Path to the input file containing the regression data (Output file from "stack_shp_on_rast")
 #' @param response_var Name of the in-situ data column (response-variable) in the regression data
@@ -49,6 +51,7 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
 
   file_path <- file.path(output_folder, "rf_model.rds")
   saveRDS(rf_model, file_path)
+
   # Return the trained model
   return(rf_model)
 }
