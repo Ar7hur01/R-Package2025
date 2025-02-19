@@ -3,6 +3,9 @@
 \name{stack_shp_on_rast}
 \alias{stack_shp_on_rast}
 \title{function 2: Stack shape file on raster data and mask}
+\source{
+Your data source
+}
 \usage{
 stack_shp_on_rast(shp_file, raster_file, output_folder)
 }
@@ -15,4 +18,8 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 }
 \description{
 function 2: Stack shape file on raster data and mask
+}
+\examples{
+data(shp_enkelboom)
+data(raster_enkelboom)
 }

@@ -8,6 +8,9 @@
 #' @export
 #'
 #' @examples
+#' data(shp_enkelboom)
+#' data(raster_enkelboom)
+#' @source Your data source
 
 stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   shapefile_data <- terra::vect(shp_file)

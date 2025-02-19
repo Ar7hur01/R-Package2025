@@ -3,7 +3,7 @@
 \name{apply_rf_to_raster}
 \alias{apply_rf_to_raster}
 \title{Function to apply the trained Random Forest model on new raster data
-Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map}
+Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map. Output can be used in GIS software to look at exact prediction values of each pixel.}
 \usage{
 apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 }
@@ -16,5 +16,5 @@ apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 }
 \description{
 Function to apply the trained Random Forest model on new raster data
-Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
+Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map. Output can be used in GIS software to look at exact prediction values of each pixel.
 }
