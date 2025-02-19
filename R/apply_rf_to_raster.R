@@ -32,7 +32,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   terra::values(r_pred) <- df$predicted  # Assign predicted values to the raster
 
   # Plot the predicted raster
-  plot(r_pred, main = "Predicted Raster Output")
+  terra::plot(r_pred, main = "Predicted Raster Output")
 
   # Save as a TIF with decimal numbers of predicted in-situ measurements
   new_file <- file.path(output_raster_path, "prediction.tif")
