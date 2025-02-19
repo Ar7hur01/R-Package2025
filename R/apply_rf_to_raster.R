@@ -1,6 +1,6 @@
 ## function 4 Prediction map function
 #' Function to apply the trained Random Forest model on new raster data
-#' Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
+#' Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map. Output can be used in GIS software to look at exact prediction values of each pixel.
 #'
 #' @param rf_model Trained Random Forest model (from "train_rf_model"-function)
 #' @param raster_path Path to the raster file with reflectance values (.tif)
