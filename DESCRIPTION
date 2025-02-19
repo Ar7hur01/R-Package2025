@@ -7,7 +7,7 @@ Maintainer: The package maintainer <arthur.dreher@stud-mail.uni-wuerzburg.de>
 Description: InFieldR helps to first suggest with a conditioned latin hypercube sampling and KL divergence to suggest how many in-situ values should be sampled to receive a sufficient accuracy. The package is designed to streamline in-field sampling and satellite-based prediction for agricultural and environmental studies. The package also provides a structured workflow for selecting sampling locations, collecting field measurements, and building predictive models to map spatial variability across a given area of interest (AOI).
 License: 4.1
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 RoxygenNote: 7.3.2
 Imports: 
     randomForest,
