@@ -14,13 +14,6 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   shapefile_data <- vect(shp_file)
   raster_data <- rast(raster_file)
 
-  if (any(is.na(values(shp_file)))) {
-    shp_file <- na.omit(shp_file)
-  }
-  if (any(is.na(values(raster_file)))) {
-    raster_file <- na.omit(raster_file)
-  }
-
   shapefile_reproject <- project(shapefile_data, crs(raster_data))
 
   extracted_values <- extract(raster_data, shapefile_reproject)
