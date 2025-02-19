@@ -13,7 +13,7 @@
 
 apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # load the satellite scene as raster
-  satellite_raster <- rast(raster_path)  # Use 'rast' from the terra package
+  satellite_raster <- terra::rast(raster_path)  # Use 'rast' from the terra package
   # convert raster to data frame
   df <- as.data.frame(satellite_raster, xy = TRUE)  # 'xy = TRUE' keeps the coordinates
   # Rename columns (assuming the first two columns are x and y)
@@ -23,7 +23,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # print for rechecking
   print(df)
   # predict using the random forest model on the data frame (= raster data)
-  df$predicted <- predict(rf_model, newdata = df)
+  df$predicted <- randomForest::predict(rf_model, newdata = df)
 
   # Convert predictions back to a raster
   r_pred <- satellite_raster[[1]]  # Use first band as a template

@@ -7,11 +7,11 @@
 stack_shp_on_rast(shp_file, raster_file, output_folder)
 }
 \arguments{
-\item{shp_file}{stacked SHP file (from function "raster_stack_mask") with in situ-measurments}
+\item{shp_file}{stacked SHP file (your own or the output from function "raster_stack_mask") with in-situ measurements}
 
-\item{raster_file}{Raster file with satellite scene from the closest date of the in-situ data acquisition}
+\item{raster_file}{Raster file with satellite scene from the closest date of the in-situ data acquisition (Sentinel-scene from e.g. copernicus-hub)}
 
-\item{output_folder}{Folder to save the output file (output directory [a change here])}
+\item{output_folder}{Folder to save the output file (output directory)}
 }
 \description{
 function 2: Stack shape file on raster data and mask

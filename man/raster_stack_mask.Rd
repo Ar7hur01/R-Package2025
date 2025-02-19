@@ -2,7 +2,8 @@
 % Please edit documentation in R/raster_stack_mask.R
 \name{raster_stack_mask}
 \alias{raster_stack_mask}
-\title{Stack and mask of individual raster bands (from Sentinel 2)}
+\title{Stack and mask of individual raster bands (from Sentinel 2)
+Be careful: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.}
 \usage{
 raster_stack_mask(raster_scene_folder, aoi, output_folder)
 }
@@ -15,4 +16,5 @@ raster_stack_mask(raster_scene_folder, aoi, output_folder)
 }
 \description{
 Stack and mask of individual raster bands (from Sentinel 2)
+Be careful: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.
 }

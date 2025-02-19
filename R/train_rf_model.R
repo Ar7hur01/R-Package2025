@@ -36,13 +36,13 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
   test_data <- regression_input[-train_indices, ]
 
   # Train the Random Forest Regression model
-  rf_model <- randomForest(formula, data = train_data, ntree = 500, mtry = 3, importance = TRUE)
+  rf_model <- randomForest::randomForest(formula, data = train_data, ntree = 500, mtry = 3, importance = TRUE)
 
   # Print model summary
   print(rf_model)
 
   # Predict on test data
-  predictions <- predict(rf_model, newdata = test_data)
+  predictions <- randomForest::predict(rf_model, newdata = test_data)
 
   # Calculate RMSE (Root Mean Squared Error)
   actual <- test_data[[response_var]]

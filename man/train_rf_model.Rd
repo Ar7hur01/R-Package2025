@@ -2,7 +2,9 @@
 % Please edit documentation in R/train_rf_model.R
 \name{train_rf_model}
 \alias{train_rf_model}
-\title{Train Random Forest Regression Model}
+\title{Train Random Forest Regression Model
+This function trains a Random Forest regression model using the input data and saves the trained model to a file.
+It will show you the RMSE as output to evaluate the accuracy of your model.}
 \usage{
 train_rf_model(
   regression_input_path,
@@ -25,4 +27,6 @@ train_rf_model(
 }
 \description{
 Train Random Forest Regression Model
+This function trains a Random Forest regression model using the input data and saves the trained model to a file.
+It will show you the RMSE as output to evaluate the accuracy of your model.
 }

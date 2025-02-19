@@ -10,9 +10,8 @@
 #' @examples
 
 stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
-  library(terra)
-  shapefile_data <- vect(shp_file)
-  raster_data <- rast(raster_file)
+  shapefile_data <- terra::vect(shp_file)
+  raster_data <- terra::rast(raster_file)
 
   shapefile_reproject <- project(shapefile_data, crs(raster_data))
 

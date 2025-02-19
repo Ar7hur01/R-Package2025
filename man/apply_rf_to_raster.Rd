@@ -2,7 +2,8 @@
 % Please edit documentation in R/apply_rf_to_raster.R
 \name{apply_rf_to_raster}
 \alias{apply_rf_to_raster}
-\title{Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map}
+\title{Function to apply the trained Random Forest model on new raster data
+Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map}
 \usage{
 apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 }
@@ -14,5 +15,6 @@ apply_rf_to_raster(rf_model, raster_path, output_raster_path)
 \item{output_raster_path}{Path to save the output raster file with predicted values}
 }
 \description{
+Function to apply the trained Random Forest model on new raster data
 Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map
 }
