@@ -24,8 +24,8 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   print(df)
 
   # predict using the random forest model on the data frame (= raster data)
-  #rf_model <- terra::readRDS(rf_model)
-  df$predicted <- terra::predict(rf_model, newdata = df)
+  actual_rf_model <- readRDS(rf_model)
+  df$predicted <- terra::predict(actual_rf_model, newdata = df)
 
   # Convert predictions back to a raster
   r_pred <- satellite_raster[[1]]  # Use first band as a template
