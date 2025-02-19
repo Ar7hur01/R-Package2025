@@ -13,7 +13,7 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   shapefile_data <- terra::vect(shp_file)
   raster_data <- terra::rast(raster_file)
 
-  shapefile_reproject <- project(shapefile_data, crs(raster_data))
+  shapefile_reproject <- terra::project(shapefile_data, crs(raster_data))
 
   extracted_values <- extract(raster_data, shapefile_reproject)
   for (i in seq_along(colnames(extracted_values))) {

@@ -42,7 +42,7 @@ train_rf_model <- function(regression_input_path, response_var, output_folder, n
   print(rf_model)
 
   # Predict on test data
-  predictions <- predict(rf_model, newdata = test_data)
+  predictions <- terra::predict(rf_model, newdata = test_data)
 
   # Calculate RMSE (Root Mean Squared Error)
   actual <- test_data[[response_var]]
