@@ -19,6 +19,13 @@ raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
   # List all .jp2 files in the specified folder
   all_files <- list.files(path = raster_scene_folder, pattern = "\\.jp2$", full.names = TRUE)
 
+  if (any(is.na(values(aoi)))) {
+    aoi <- na.omit(aoi)
+  }
+  if (any(is.na(values(raster_scene_folder)))) {
+    raster_scene_folder <- na.omit(raster_scene_folder)
+  }
+
   # Read in .jp2 files and stack them into a Rasterfile
   raster_stack <- rast(all_files)
   # Read in the AOI (as Vectorfile --> SHP, GeoPackage, GeoJSON or KML
@@ -29,6 +36,9 @@ raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
 
   # Crop and mask to the polygon extent
   raster_cropped <- crop(raster_stack, extent)
+
+  #masking aborts R immediately cause the stacked tif is too large
+  #Function will be excluded from the package
   raster_masked <- mask(raster_cropped, extent)
   print(raster_masked)
 
