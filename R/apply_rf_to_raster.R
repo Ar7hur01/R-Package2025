@@ -24,7 +24,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   print(df)
 
   # predict using the random forest model on the data frame (= raster data)
-  rf_model <- terra::readRDS(rf_model)
+  #rf_model <- terra::readRDS(rf_model)
   df$predicted <- terra::predict(rf_model, newdata = df)
 
   # Convert predictions back to a raster
