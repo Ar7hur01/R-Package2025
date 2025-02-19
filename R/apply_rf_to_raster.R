@@ -29,7 +29,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
 
   # Convert predictions back to a raster
   r_pred <- satellite_raster[[1]]  # Use first band as a template
-  values(r_pred) <- df$predicted  # Assign predicted values to the raster
+  terra::values(r_pred) <- df$predicted  # Assign predicted values to the raster
 
   # Plot the predicted raster
   plot(r_pred, main = "Predicted Raster Output")
