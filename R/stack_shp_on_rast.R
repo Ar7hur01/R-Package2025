@@ -7,9 +7,9 @@
 #' @returns
 #' @export
 #'
-#' @examples
-#' data(shp_enkelboom)
-#' data(raster_enkelboom)
+#' @examples InFieldR$stack_shp_on_rast <- stack_shp_on_rast()
+#' data("shp_enkelboom")
+#' data("raster_enkelboom")
 #' stack_shp_on_rast(shp_enkelboom, raster_enkelboom, tempdir())
 #'
 #' @source Copernicus hub and in-situ data from a field in Enkelboom, South Africa

@@ -20,8 +20,9 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 function 2: Stack shape file on raster data and mask
 }
 \examples{
-data(shp_enkelboom)
-data(raster_enkelboom)
+InFieldR$stack_shp_on_rast <- stack_shp_on_rast()
+data("shp_enkelboom")
+data("raster_enkelboom")
 stack_shp_on_rast(shp_enkelboom, raster_enkelboom, tempdir())
 
 }
