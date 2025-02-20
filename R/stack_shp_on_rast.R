@@ -7,10 +7,15 @@
 #' @returns
 #' @export
 #'
-#' @examples InFieldR$stack_shp_on_rast <- stack_shp_on_rast()
-#' data("shp_enkelboom")
-#' data("raster_enkelboom")
-#' stack_shp_on_rast(shp_enkelboom, raster_enkelboom, tempdir())
+#' @examples
+#' data("shp_enkelboom", package = "InFieldR")
+#' #print(shp_enkelboom)
+#' data("raster_enkelboom", package = "InFieldR")
+#' terra::unwrap(raster_enkelboom)
+#' #print(raster_enkelboom)
+#' if (exists("shp_enkelboom") && exists("raster_enkelboom")) {
+#'   result <- stack_shp_on_rast(shp_enkelboom, raster_enkelboom, tempdir())
+#' }
 #'
 #' @source Copernicus hub and in-situ data from a field in Enkelboom, South Africa
 
@@ -31,7 +36,7 @@ stack_shp_on_rast <- function(shp_file, raster_file, output_folder) {
   # Combine the extracted values with the shapefile data
   shapefile_data <- cbind(shapefile_data, extracted_values[,-1]) # Remove the ID column to avoid duplication
   #Check-up
-  head(shapefile_data)
+  print(shapefile_data)
 
   file_name <- "insitu_reflectance.txt"
   file_path <- file.path(output_folder, file_name)

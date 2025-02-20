@@ -11,8 +11,13 @@
 #' @param mtry Number of variables randomly sampled as candidates at each split
 #'
 #' @returns
-#' @export
-#'
+#' @examples
+#' data("insitu_reflectance", package = "InFieldR")
+#' print(insitu_reflectance)
+#' if (exists("insitu_reflectance")) {
+#'   result <- train_rf_model(insitu_reflectance, Label, tempdir(), ntree = 500, mtry = 3)
+#' }
+#'#'
 #' @examples
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
