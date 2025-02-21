@@ -14,8 +14,8 @@
 optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its = 10, output_folder) {
 
   # Ensure the required libraries are loaded
-#  library(clhs)
-#  library(entropy)
+  library(clhs)
+  library(entropy)
 
   # Define number of covariate columns (assuming columns 3 and beyond are covariates)
   n_c <- ncol(df) - 2
