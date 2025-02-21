@@ -127,9 +127,9 @@ print(cov.mat)
   # Retrieve the optimal sample corresponding to the best normalized KL value
   optimal_sample <- samples_list[[which(cseq == optimal_sample_size)]]
 
-  # Optionally: Save the optimal sample to a file
-  if (!is.null(output_file)) {
-    write.csv(optimal_sample[[1]], file = output_file, col.names = TRUE, row.names = FALSE, sep = ",")
+  # Optionally: Save the optimal sample to a folder
+  if (!is.null(output_folder)) {
+    write.csv(optimal_sample[[1]], file = output_folder, col.names = TRUE, row.names = FALSE, sep = ",")
   }
 
 # Return the actual sample set (coordinates and values) for the optimal sample size
