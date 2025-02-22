@@ -12,13 +12,14 @@
 #'
 #' @returns
 #' @examples
+#'
 #' data("insitu_reflectance", package = "InFieldR")
 #' print(insitu_reflectance)
+#' class(insitu_reflectance)
 #' if (exists("insitu_reflectance")) {
-#'   result <- train_rf_model(insitu_reflectance, Label, tempdir(), ntree = 500, mtry = 3)
+#'   result <- train_rf_model(insitu_reflectance, "Label", tempdir(), ntree = 500, mtry = 3)
 #' }
-#'#'
-#' @examples
+#' @export
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
   # Load the dataset

@@ -31,10 +31,11 @@ This function trains a Random Forest regression model using the input data and s
 It will show you the RMSE as output to evaluate the accuracy of your model.
 }
 \examples{
+
 data("insitu_reflectance", package = "InFieldR")
 print(insitu_reflectance)
+class(insitu_reflectance)
 if (exists("insitu_reflectance")) {
-  result <- train_rf_model(insitu_reflectance, Label, tempdir(), ntree = 500, mtry = 3)
+  result <- train_rf_model(insitu_reflectance, "Label", tempdir(), ntree = 500, mtry = 3)
 }
-#'
 }
