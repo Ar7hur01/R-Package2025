@@ -10,10 +10,28 @@
 #' @export
 #'
 #' @examples
+#' # Default usage with the Bands dataset (using default parameters)
+#' optimal_sample <- optimal_sample_size(df = Bands)
+#' print(optimal_sample)
+#'
+#' # Customizing parameters like number of bins, sample sizes, and iterations
+#' optimal_sample <- optimal_sample_size(df = Bands, nb = 15, cseq = seq(20, 300, 10), its = 15)
+#' print(optimal_sample)
+#'
+#' # Save the optimal sample size to a specified folder
+#' output_folder <- "path_to_output_directory"
+#' optimal_sample <- optimal_sample_size(df = Bands, output_folder = output_folder)
+#' print("Optimal sample size saved to folder.")
+#'
+#' # Handle case where no optimal sample size meets the threshold
+#' optimal_sample <- optimal_sample_size(df = Bands, cseq = seq(10, 50, 5))
+#' if (is.null(optimal_sample)) {
+#'   print("No optimal sample size meets the threshold.")
+#' }
 
 optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its = 10, output_folder) {
 
-  # Ensure the required libraries are loaded
+  # Ensure the required lidevbraries are loaded
   library(clhs)
   library(entropy)
 
@@ -49,24 +67,24 @@ optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its 
       cntj <- cntj + 1
     }
   }
-print(cov.mat)
+  print(cov.mat)
 
   # Setup for storing results
- mat.seq <- matrix(NA, ncol = 2, nrow = length(cseq))
- samples_list <- vector("list", length(cseq))
+  mat.seq <- matrix(NA, ncol = 2, nrow = length(cseq))
+  samples_list <- vector("list", length(cseq))
 
   # Main loop over different sample sizes
- for (w in 1:length(cseq)) {
- s.size <- cseq[w]  # sample size
- mat.f <- matrix(NA, ncol = 10, nrow = its)  # Placeholder for iteration outputs
+  for (w in 1:length(cseq)) {
+    s.size <- cseq[w]  # sample size
+    mat.f <- matrix(NA, ncol = 10, nrow = its)  # Placeholder for iteration outputs
 
     # Internal loop for iterations
     for (j in 1:its) {
       repeat {
         ss <- clhs(df[, 3:n_c], size = s.size, progress = T, iter = 1000)  # Perform cLHS sampling
-       s.df <- df[ss, ]
+        s.df <- df[ss, ]
 
-       if (sum(duplicated(s.df) | duplicated(s.df[nrow(s.df):1, ])[nrow(s.df):1]) < 2) {
+        if (sum(duplicated(s.df) | duplicated(s.df[nrow(s.df):1, ])[nrow(s.df):1]) < 2) {
           break
         }
       }
@@ -132,6 +150,6 @@ print(cov.mat)
     write.csv(optimal_sample[[1]], file = output_folder, col.names = TRUE, row.names = FALSE, sep = ",")
   }
 
-# Return the actual sample set (coordinates and values) for the optimal sample size
+  # Return the actual sample set (coordinates and values) for the optimal sample size
   return(optimal_sample[[1]])  # Return the X and Y coordinates of the optimal sample
 }

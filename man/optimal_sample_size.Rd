@@ -29,3 +29,23 @@ csv file with optimal sample size with XYZ parameters
 \description{
 Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
 }
+\examples{
+# Default usage with the Bands dataset (using default parameters)
+optimal_sample <- optimal_sample_size(df = Bands)
+print(optimal_sample)
+
+# Customizing parameters like number of bins, sample sizes, and iterations
+optimal_sample <- optimal_sample_size(df = Bands, nb = 15, cseq = seq(20, 300, 10), its = 15)
+print(optimal_sample)
+
+# Save the optimal sample size to a specified folder
+output_folder <- "path_to_output_directory"
+optimal_sample <- optimal_sample_size(df = Bands, output_folder = output_folder)
+print("Optimal sample size saved to folder.")
+
+# Handle case where no optimal sample size meets the threshold
+optimal_sample <- optimal_sample_size(df = Bands, cseq = seq(10, 50, 5))
+if (is.null(optimal_sample)) {
+  print("No optimal sample size meets the threshold.")
+}
+}
