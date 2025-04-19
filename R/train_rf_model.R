@@ -16,9 +16,9 @@
 #' data("insitu_reflectance", package = "InFieldR")
 #' print(insitu_reflectance)
 #' class(insitu_reflectance)
-#' if (exists("insitu_reflectance")) {
-#'   result <- train_rf_model(insitu_reflectance, "Label", tempdir(), ntree = 500, mtry = 3)
-#' }
+#' insitu_reflectance <- write.table(insitu_reflectance, file = "my_file.tsv", sep = "\t", row.names = FALSE)
+#' result <- train_rf_model(insitu_reflectance, "Label", tempdir(), ntree = 500, mtry = 3)
+#' print(result)
 #' @export
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {

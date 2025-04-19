@@ -3,13 +3,20 @@
 #' Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map. Output can be used in GIS software to look at exact prediction values of each pixel.
 #'
 #' @param rf_model Trained Random Forest model (from "train_rf_model"-function)
-#' @param raster_path Path to the raster file with reflectance values (.tif)
+#' @param raster_path Path to the raster file with reflectance values (.tif-file)
 #' @param output_raster_path Path to save the output raster file with predicted values
 #'
 #' @returns
 #' @export
 #'
 #' @examples
+#' data("my_raster", package = "InFieldR")  # loads a SpatRaster
+#' data("rf_model", package = "InFieldR")   # loads a trained randomForest model
+#'
+#' # Predict and plot the result
+#' result <- apply_rf_to_raster(rf_model, my_raster, tempdir())
+#' terra::plot(result, main = "Predicted Raster from Random Forest")
+
 
 apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # load the satellite scene as raster

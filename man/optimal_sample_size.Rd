@@ -31,6 +31,8 @@ Extracting the optimal sample size of a study site generated through cLHS and KL
 }
 \examples{
 # Default usage with the Bands dataset (using default parameters)
+data("Bands", package = "InFieldR")
+class(Bands)
 optimal_sample <- optimal_sample_size(df = Bands)
 print(optimal_sample)
 
