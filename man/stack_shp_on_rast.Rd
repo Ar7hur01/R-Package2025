@@ -2,7 +2,7 @@
 % Please edit documentation in R/stack_shp_on_rast.R
 \name{stack_shp_on_rast}
 \alias{stack_shp_on_rast}
-\title{function 2: Stack shape file on raster data and mask}
+\title{Stack shape file on raster data and mask}
 \source{
 Copernicus hub and in-situ data from a field in Enkelboom, South Africa
 }
@@ -17,7 +17,7 @@ stack_shp_on_rast(shp_file, raster_file, output_folder)
 \item{output_folder}{Folder to save the output file (output directory)}
 }
 \description{
-function 2: Stack shape file on raster data and mask
+Stack shape file on raster data and mask
 }
 \examples{
 data("shp_enkelboom", package = "InFieldR")

@@ -1,4 +1,5 @@
-#' function 2: Stack shape file on raster data and mask
+# function 2
+#' Stack shape file on raster data and mask
 #'
 #' @param shp_file stacked SHP file (your own or the output from function "raster_stack_mask") with in-situ measurements
 #' @param raster_file Raster file with satellite scene from the closest date of the in-situ data acquisition (Sentinel-scene from e.g. copernicus-hub)

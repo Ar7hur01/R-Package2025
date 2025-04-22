@@ -1,7 +1,7 @@
 #function 1 --> combining raster data and shp to a new shp with all attributes
 
 #' Stack and mask of individual raster bands (from Sentinel 2)
-#' Be careful: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.
+#' @param Attention: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.
 #' @param raster_scene_folder: Folder containing the raster files with the bands that will be used for the regression model (either 10/20/60 m Resolution)
 #' @param aoi: Area of interest (AOI) as a vector file.
 #' @param output_folder: Folder to save the output file (output directory where file will be saved)
@@ -10,7 +10,6 @@
 #' @export
 #'
 #' @examples
-#'
 
 raster_stack_mask <- function(raster_scene_folder, aoi, output_folder) {
   if (!requireNamespace("terra", quietly = TRUE)) {

@@ -2,12 +2,13 @@
 % Please edit documentation in R/raster_stack_mask.R
 \name{raster_stack_mask}
 \alias{raster_stack_mask}
-\title{Stack and mask of individual raster bands (from Sentinel 2)
-Be careful: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.}
+\title{Stack and mask of individual raster bands (from Sentinel 2)}
 \usage{
 raster_stack_mask(raster_scene_folder, aoi, output_folder)
 }
 \arguments{
+\item{Attention:}{This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.}
+
 \item{raster_scene_folder:}{Folder containing the raster files with the bands that will be used for the regression model (either 10/20/60 m Resolution)}
 
 \item{aoi:}{Area of interest (AOI) as a vector file.}
@@ -16,5 +17,4 @@ raster_stack_mask(raster_scene_folder, aoi, output_folder)
 }
 \description{
 Stack and mask of individual raster bands (from Sentinel 2)
-Be careful: This function only works with data that has a size smaller than your RAM. If the data is too large, the function will abort R immediately.
 }

@@ -12,13 +12,12 @@
 #'
 #' @returns
 #' @examples
-#'
-#' data("insitu_reflectance", package = "InFieldR")
-#' print(insitu_reflectance)
-#' class(insitu_reflectance)
+#' insitu_ref <- system.file("data", "insitu_reflectance.txt", package = "InFieldR")
+#' #data("insitu_reflectance", package = "InFieldR")
+#' #print(insitu_reflectance)
+#' #class(insitu_reflectance)
 #' # insitu_reflectance <- write.table(insitu_reflectance, file = "my_file.rda", sep = "\t", row.names = FALSE)
-#' result <- train_rf_model(insitu_reflectance, "in_situ", tempdir(), ntree = 500, mtry = 3)
-#' print(result)
+#' result <- train_rf_model(insitu_ref, "in_situ", tempdir(), ntree = 500, mtry = 3)
 #' @export
 
 train_rf_model <- function(regression_input_path, response_var, output_folder, ntree = 500, mtry = 3) {
