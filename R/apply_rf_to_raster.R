@@ -10,6 +10,7 @@
 #' @export
 #'
 #' @examples
+# Required packages: randomForest, Terra, Raster, 
 #' f <- system.file("data", "08-01-25_enkelboom_stacked.tif", package = "InFieldR")
 #' r <- terra::rast(f)
 #' g <- system.file("data", "my_model.rds", package = "InFieldR")
