@@ -35,7 +35,7 @@ It will show you the RMSE as output to evaluate the accuracy of your model.
 data("insitu_reflectance", package = "InFieldR")
 print(insitu_reflectance)
 class(insitu_reflectance)
-insitu_reflectance <- write.table(insitu_reflectance, file = "my_file.tsv", sep = "\t", row.names = FALSE)
-result <- train_rf_model(insitu_reflectance, "Label", tempdir(), ntree = 500, mtry = 3)
+# insitu_reflectance <- write.table(insitu_reflectance, file = "my_file.rda", sep = "\t", row.names = FALSE)
+result <- train_rf_model(insitu_reflectance, "in_situ", tempdir(), ntree = 500, mtry = 3)
 print(result)
 }

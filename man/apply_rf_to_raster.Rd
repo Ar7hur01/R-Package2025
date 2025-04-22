@@ -19,10 +19,13 @@ Function to apply the trained Random Forest model on new raster data
 Apply created Random Forest Model to new/unseen Raster Data to generate a Prediction-Map. Output can be used in GIS software to look at exact prediction values of each pixel.
 }
 \examples{
-data("my_raster", package = "InFieldR")  # loads a SpatRaster
+f <- system.file("data", "08-01-25_enkelboom_stacked.tif", package = "InFieldR")
+r <- terra::rast(f)
+plot(r)
 data("rf_model", package = "InFieldR")   # loads a trained randomForest model
 
 # Predict and plot the result
-result <- apply_rf_to_raster(rf_model, my_raster, tempdir())
+result <- apply_rf_to_raster(rf_model, f, tempdir())
+plot(result)
 terra::plot(result, main = "Predicted Raster from Random Forest")
 }

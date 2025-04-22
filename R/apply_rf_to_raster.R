@@ -10,11 +10,15 @@
 #' @export
 #'
 #' @examples
-#' data("my_raster", package = "InFieldR")  # loads a SpatRaster
+#' f <- system.file("data", "08-01-25_enkelboom_stacked.tif", package = "InFieldR")
+#' r <- terra::rast(f)
+#' plot(r)
+#' g <- system.file("data", "", package = "InFieldR")
 #' data("rf_model", package = "InFieldR")   # loads a trained randomForest model
 #'
 #' # Predict and plot the result
-#' result <- apply_rf_to_raster(rf_model, my_raster, tempdir())
+#' result <- apply_rf_to_raster(rf_model, f, tempdir())
+#' plot(result)
 #' terra::plot(result, main = "Predicted Raster from Random Forest")
 
 
