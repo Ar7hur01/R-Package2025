@@ -21,11 +21,9 @@ Apply created Random Forest Model to new/unseen Raster Data to generate a Predic
 \examples{
 f <- system.file("data", "08-01-25_enkelboom_stacked.tif", package = "InFieldR")
 r <- terra::rast(f)
-plot(r)
-data("rf_model", package = "InFieldR")   # loads a trained randomForest model
+g <- system.file("data", "my_model.rds", package = "InFieldR")
+# data("rf_model", package = "InFieldR")   # loads a trained randomForest model
 
 # Predict and plot the result
-result <- apply_rf_to_raster(rf_model, f, tempdir())
-plot(result)
-terra::plot(result, main = "Predicted Raster from Random Forest")
+result <- apply_rf_to_raster(g, f, tempdir())
 }

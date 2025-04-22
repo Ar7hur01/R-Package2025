@@ -12,15 +12,11 @@
 #' @examples
 #' f <- system.file("data", "08-01-25_enkelboom_stacked.tif", package = "InFieldR")
 #' r <- terra::rast(f)
-#' plot(r)
-#' g <- system.file("data", "", package = "InFieldR")
-#' data("rf_model", package = "InFieldR")   # loads a trained randomForest model
+#' g <- system.file("data", "my_model.rds", package = "InFieldR")
+#' # data("rf_model", package = "InFieldR")   # loads a trained randomForest model
 #'
 #' # Predict and plot the result
-#' result <- apply_rf_to_raster(rf_model, f, tempdir())
-#' plot(result)
-#' terra::plot(result, main = "Predicted Raster from Random Forest")
-
+#' result <- apply_rf_to_raster(g, f, tempdir())
 
 apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
   # load the satellite scene as raster
@@ -32,7 +28,7 @@ apply_rf_to_raster <- function(rf_model, raster_path, output_raster_path) {
     colnames(df)[i] <- paste0("Band_", i-2)  # Subtract 2 to start numbering from 1
   }
   # print for rechecking
-  print(df)
+  head(df)
 
   # predict using the random forest model on the data frame (= raster data)
   actual_rf_model <- readRDS(rf_model)
