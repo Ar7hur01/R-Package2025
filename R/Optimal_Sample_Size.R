@@ -1,6 +1,6 @@
 #' Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
 #'
-#' @param df Bands (Covariate dataframe:used by cLHS or sampling; used by KL divergence to calculate distribution)
+#' @param Bands Bands (Covariate dataframe:used by cLHS or sampling; used by KL divergence to calculate distribution)
 #' @param nb number of bins for created quantiles
 #' @param cseq sequence of sampled points by cLHS
 #' @param its iterations of sampled data
@@ -11,41 +11,41 @@
 #'
 #' @examples
 #' # Default usage with the Bands dataset (using default parameters)
-#' optimal_sample <- optimal_sample_size(df = Bands)
+#' optimal_sample <- optimal_sample_size(Bands)
 #' print(optimal_sample)
 #'
 #' # Customizing parameters like number of bins, sample sizes, and iterations
-#' optimal_sample <- optimal_sample_size(df = Bands, nb = 15, cseq = seq(20, 300, 10), its = 15)
+#' optimal_sample <- optimal_sample_size(Bands, nb = 15, cseq = seq(20, 300, 10), its = 15)
 #' print(optimal_sample)
 #'
 #' # Save the optimal sample size to a specified folder
 #' output_folder <- "path_to_output_directory"
-#' optimal_sample <- optimal_sample_size(df = Bands, output_folder = output_folder)
+#' optimal_sample <- optimal_sample_size(Bands, output_folder = output_folder)
 #' print("Optimal sample size saved to folder.")
 #'
 #' # Handle case where no optimal sample size meets the threshold
-#' optimal_sample <- optimal_sample_size(df = Bands, cseq = seq(10, 50, 5))
+#' optimal_sample <- optimal_sample_size(Bands, cseq = seq(10, 50, 5))
 #' if (is.null(optimal_sample)) {
 #'   print("No optimal sample size meets the threshold.")
 #' }
 
-optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its = 10, output_folder) {
+optimal_sample_size <- function(Bands, nb = 10, cseq = seq(10, 500, 10), its = 10, output_folder) {
 
   # Ensure the required lidevbraries are loaded
   library(clhs)
   library(entropy)
 
   # Define number of covariate columns (assuming columns 3 and beyond are covariates)
-  n_c <- ncol(df) - 2
+  n_c <- ncol(Bands) - 2
 
   # Quantile matrix initialization for covariates
   q.mat <- matrix(NA, nrow = (nb + 1), ncol = n_c)
 
   # Generate quantiles for each covariate (assuming the covariates start from column 3)
-  for (i in 3:ncol(df)) {
-    ran1 <- max(df[, i]) - min(df[, i])
+  for (i in 3:ncol(Bands)) {
+    ran1 <- max(Bands[, i]) - min(Bands[, i])
     step1 <- ran1 / nb
-    q.mat[, i - 2] <- seq(min(df[, i]), to = max(df[, i]), by = step1)
+    q.mat[, i - 2] <- seq(min(Bands[, i]), to = max(Bands[, i]), by = step1)
   }
 
   # Print the quantile matrix to check if it’s correct
@@ -53,10 +53,10 @@ optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its 
 
   # Covariate data hypercube initialization
   cov.mat <- matrix(1, nrow = nb, ncol = n_c)
-  for (i in 1:nrow(df)) {
+  for (i in 1:nrow(Bands)) {
     cntj <- 1
-    for (j in 3:ncol(df)) {
-      dd <- df[i, j]
+    for (j in 3:ncol(Bands)) {
+      dd <- Bands[i, j]
       for (k in 1:nb) {
         kl <- q.mat[k, cntj]
         ku <- q.mat[k + 1, cntj]
@@ -81,10 +81,10 @@ optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its 
     # Internal loop for iterations
     for (j in 1:its) {
       repeat {
-        ss <- clhs(df[, 3:n_c], size = s.size, progress = T, iter = 1000)  # Perform cLHS sampling
-        s.df <- df[ss, ]
+        ss <- clhs(Bands[, 3:n_c], size = s.size, progress = T, iter = 1000)  # Perform cLHS sampling
+        s.Bands <- Bands[ss, ]
 
-        if (sum(duplicated(s.df) | duplicated(s.df[nrow(s.df):1, ])[nrow(s.df):1]) < 2) {
+        if (sum(duplicated(s.Bands) | duplicated(s.Bands[nrow(s.Bands):1, ])[nrow(s.Bands):1]) < 2) {
           break
         }
       }
@@ -93,14 +93,14 @@ optimal_sample_size <- function(df=Bands, nb = 10, cseq = seq(10, 500, 10), its 
       if (is.null(samples_list[[w]])) {
         samples_list[[w]] <- list()
       }
-      samples_list[[w]][[j]] <- s.df
+      samples_list[[w]][[j]] <- s.Bands
 
       # KL Divergence calculation
       h.mat <- matrix(1, nrow = nb, ncol = n_c)
-      for (ii in 1:nrow(s.df)) {
+      for (ii in 1:nrow(s.Bands)) {
         cntj <- 1
-        for (jj in 3:ncol(s.df)) {
-          dd <- s.df[ii, jj]
+        for (jj in 3:ncol(s.Bands)) {
+          dd <- s.Bands[ii, jj]
           for (kk in 1:nb) {
             kl <- q.mat[kk, cntj]
             ku <- q.mat[kk + 1, cntj]
