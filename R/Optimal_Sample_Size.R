@@ -1,10 +1,10 @@
 #' Extracting the optimal sample size of a study site generated through cLHS and KL Divergence analysis
 #'
-#' @param Bands Bands (Covariate dataframe:used by cLHS or sampling; used by KL divergence to calculate distribution)
+#' @param Bands Covariate dataframe used by cLHS or sampling; used by KL divergence to calculate distribution
 #' @param nb number of bins for created quantiles
 #' @param cseq sequence of sampled points by cLHS
 #' @param its iterations of sampled data
-#' @param output_file file directory
+#' @param output_file file directory to save CSV (optional)
 #'
 #' @return csv file with optimal sample size with XYZ parameters
 #' @export
